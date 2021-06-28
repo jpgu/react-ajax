@@ -1,23 +1,32 @@
-import logo from './logo.svg';
-import './App.css';
+import React, {Component} from 'react';
+
+class Nav extends Component{
+  componentDidMount(){
+    fetch('list.json', {
+      headers : { 
+        'Content-Type': 'application/json',
+        'Accept': 'application/json'
+       }    
+    })
+      .then(function(result){
+        return result.json();
+      })
+      .then(function(json){
+        console.log(json);
+      }.bind(this));
+    }
+    
+  render(){
+    return(
+      <h1>Ajax rendering</h1>
+    );
+  }
+}
 
 function App() {
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+      <Nav></Nav>      
     </div>
   );
 }
