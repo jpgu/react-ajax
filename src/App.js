@@ -19,6 +19,7 @@ class Nav extends Component{
   render(){
     return(
       <h1>Ajax rendering</h1>
+      <h2>React - Ajax</h2>
     );
   }
 }
